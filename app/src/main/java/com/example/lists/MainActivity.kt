@@ -6,6 +6,7 @@ import android.widget.Adapter
 import android.widget.ArrayAdapter
 import android.widget.ListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         lv.adapter =  ArrayAdapter(this,  android.R.layout.simple_list_item_1, android.R.id.text1, numList)
+
+        lv.setOnItemClickListener { parent, view, position, id ->
+
+            toast("Clicked on $position :")
+            //   ${ view.tv.text } -> when you create your own layout
+            //   doesn't work when we use android layout
+
+        }
 
     }
 }
